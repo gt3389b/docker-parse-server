@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Stop local stuff gracefully
+docker-compose stop
+
+
+# now the destruction
+
+# Delete all containers
+docker rm -f $(docker ps -a -q)
+
+# Delete all images
+docker rmi $(docker images -q)
